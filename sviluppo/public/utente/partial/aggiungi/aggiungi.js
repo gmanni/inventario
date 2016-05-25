@@ -1,4 +1,4 @@
-angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', function($scope, $http){
+angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', '$state', function($scope, $http, $state){
 	$scope.nuovoUtente = {
 		nome: "",
 		cognome: "",
@@ -25,7 +25,7 @@ angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', function(
             }
         }).success(function (data, status, headers, config) {
            	console.log("SUCCESS");
-        
+        		$state.go('home');
         }).error(function (data, status, headers, config) {
            	console.log("ERROR" + data);
         });
