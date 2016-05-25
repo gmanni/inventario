@@ -1,7 +1,6 @@
 var mongoose = require( 'mongoose' );
 
-// var dbURI = 'mongodb://localhost:27017/Loc8r';
-var dbURI = 'mongodb://localhost:27017/Loc8r';
+var dbURI = 'mongodb://localhost:27017/inventario';
 mongoose.connect(dbURI);
 
 // CONNECTION EVENTS
@@ -16,4 +15,5 @@ mongoose.connection.on('disconnected', function () {
 });
 
 
-require('./locations');
+//require('./locations');
+require('./users');

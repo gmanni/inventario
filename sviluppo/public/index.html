@@ -29,6 +29,9 @@
   <!-- Main App JS -->
   <script src="app.js"></script>
   <script src="partial/home/home.js"></script>
+  <script src="utente/utente.js"></script>
+  <script src="utente/partial/dettaglio/dettaglio.js"></script>
+  <script src="utente/partial/aggiungi/aggiungi.js"></script>
   <!-- Add New Component JS Above -->
   <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
@@ -42,7 +45,7 @@
       <div class="collapse navbar-collapse" id="nav-toggle">
         <ul class="nav navbar-nav">
           <li ><a ui-sref="home">Tutti i contatti</a></li>
-          <li ><a href="#/add">Aggiungi contatto</a></li>
+          <li ><a ui-sref="aggiungi">Aggiungi contatto</a></li>
         </ul>
         <form class="navbar-form navbar-right" role="search">
           <input type="text" class="form-control" placeholder="Search" >

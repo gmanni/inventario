@@ -1,11 +1,14 @@
 <div class="col-md-12" ng-controller="HomeCtrl">
-	<div class="row" ng-repeat="location in locations">
+	<div class="row" ng-repeat="utente in utenti">
 		<div class="col-md-4">
-			{{location.name}}
+			{{utente.nome}}
 		</div>
 		<div class="col-md-4">
-			{{location.address}}
+			{{utente.cognome}}
+		</div>
+		<div class="col-md-4">
+			<a ui-sref="dettaglio({id:'{{utente._id}}'})" class="btn btn-success btn-xs">View</a>
+			<a ng-click="cancella($index)" class="btn btn-success btn-xs">Delete</a>
 		</div>
 	</div>
-
 </div>

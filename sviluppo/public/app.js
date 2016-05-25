@@ -1,4 +1,4 @@
-angular.module('loc8r', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
+angular.module('loc8r', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'utente']);
 
 angular.module('loc8r').config(function($stateProvider, $urlRouterProvider) {
 
