@@ -1,6 +1,6 @@
 describe('HomeCtrl', function() {
 
-	beforeEach(module('loc8r'));
+	beforeEach(module('inventario'));
 
 	var scope,ctrl;
 

@@ -1,4 +1,4 @@
-angular.module('loc8r').controller('HomeCtrl',['$scope', '$http', function($scope, $http){
+angular.module('inventario').controller('HomeCtrl',['$scope', '$http', function($scope, $http){
 	var apiOptions = {
   		server : "http://localhost:3000"
 	};

@@ -1,6 +1,6 @@
-angular.module('loc8r', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'utente']);
+angular.module('inventario', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'utente']);
 
-angular.module('loc8r').config(function($stateProvider, $urlRouterProvider) {
+angular.module('inventario').config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('home', {
         url: '/partial/home',
@@ -11,7 +11,7 @@ angular.module('loc8r').config(function($stateProvider, $urlRouterProvider) {
 
 });
 
-angular.module('loc8r').run(function($rootScope) {
+angular.module('inventario').run(['$state', '$rootScope', function($state, $rootScope) {
 
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
@@ -24,4 +24,5 @@ angular.module('loc8r').run(function($rootScope) {
         }
     };
 
-});
+    $state.go('home');
+}]);
