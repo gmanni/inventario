@@ -1,4 +1,4 @@
-angular.module('inventario', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'utente']);
+angular.module('inventario', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'utente', 'ngSanitize']);
 
 angular.module('inventario').config(function($stateProvider, $urlRouterProvider) {
 

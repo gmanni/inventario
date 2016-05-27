@@ -4,12 +4,13 @@ angular.module('utente')
 		'$rootScope', 
 		'$state', 
 		'$stateParams', 
-		'$http', 
+		'$http',
 		function($scope, $rootScope, $state, $stateParams, $http){
 			var apiOptions = {
   				server : "http://localhost:3000"
 			};
 			console.log("ID " + $stateParams.id);
+            
 
   			var request = $http({
         		headers: {
@@ -24,13 +25,24 @@ angular.module('utente')
                 	return {data: angular.fromJson(data)};
             	}
         	}).success(function (data, status, headers, config) {
-            	console.log("SUCCESS");
+            	console.log("SUCCESS")
+                console.log(data.data)
             	$scope.utente = data.data;
         	}).error(function (data, status, headers, config) {
             	console.log("ERROR");
         	});
 
-}]);
+            $scope.$watch(function(scope){return $scope.utente}, function(newValue, oldValue){
+                console.log('CHANGE');
+                console.log(newValue);
+                console.log(oldValue);
+
+            });
+
+
+        }
+
+]);
 
 
 	
