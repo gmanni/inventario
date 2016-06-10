@@ -1,0 +1,31 @@
+utenti
+	elenco
+		nome 
+		cognome
+		emails
+		
+	aggiungi
+	cancella
+	modifica
+
+pc
+	elenco
+	aggiungi
+	cancella
+	modifica
+	associa ad utente
+
+software
+	elenco
+	aggiungi
+	cancella
+	modifica
+	associa a pc
+
+profili
+	elenco
+	aggiungi
+	cancella
+	modifica
+	associa a pc
+
