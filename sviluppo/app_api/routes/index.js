@@ -5,6 +5,7 @@ var ctrlUsers = require('../controllers/users');
 // utenti
 router.get('/users', ctrlUsers.usersList);
 router.post('/users', ctrlUsers.usersCreate);
+router.put('/user/:userid', ctrlUsers.usersFindOneAndUpdate)
 router.delete('/user/:userid', ctrlUsers.usersDeleteOne);
 
 

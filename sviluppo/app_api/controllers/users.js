@@ -88,6 +88,31 @@ module.exports.usersDeleteOne = function(req, res) {
   }
 };
 
+module.exports.usersFindOneAndUpdate = function(req, res){
+  console.log("usersFindOneAndUpdate");
+  console.log(req.body);
+var userid = req.params.userid;
+  if (userid) {
+    Utenti
+      .findByIdAndUpdate(userid, req.body)
+      .exec(
+         function(err, user) {
+           if (err) {
+             console.log(err);
+             sendJsonResponse(res, 404, err);
+             return;
+           }
+           console.log("user id " + userid + " updated");
+           sendJsonResponse(res, 204, null);
+         }
+     );
+  } else {
+    sendJsonResponse(res, 404, {
+      "message": "No userid"
+    });
+  }
+}
+
 var sendJsonResponse = function(res, status, content) {
   res.status(status);
   res.json(content);
