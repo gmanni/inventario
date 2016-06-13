@@ -23,6 +23,10 @@
       {
         "name": "utente",
         "file": "utente\\utente.js"
+      },
+      {
+        "name": "computer",
+        "file": "computer\\computer.js"
       }
     ]
   }
