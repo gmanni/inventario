@@ -2,6 +2,7 @@ angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', '$state',
 	$scope.nuovoUtente = {
 		nome: "",
 		cognome: "",
+    email: ""
 	}
 
 	$scope.salva = function(){
@@ -25,7 +26,7 @@ angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', '$state',
             }
         }).success(function (data, status, headers, config) {
            	console.log("SUCCESS");
-        		$state.go('home');
+        		
         }).error(function (data, status, headers, config) {
            	console.log("ERROR" + data);
         });

@@ -5,6 +5,7 @@ module.exports.usersCreate = function(req, res) {
   Utenti.create({
     nome: req.body.nome,
     cognome: req.body.cognome,
+    email: req.body.email
   }, function(err, user) {
       if (err) {
         sendJsonResponse(res, 400, err);

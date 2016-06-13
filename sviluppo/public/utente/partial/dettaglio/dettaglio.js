@@ -46,6 +46,12 @@ angular.module('utente')
                 $scope.toggleEditor();
             }
 
+            $scope.userList = function(){
+                angular.extend($scope.utente, $scope.utenteBackup);
+                $state.go("elenco")
+
+            }
+
             $scope.save = function(){
                 console.log($scope.utente._id);
                 var request = $http({

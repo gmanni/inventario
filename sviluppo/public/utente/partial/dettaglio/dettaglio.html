@@ -19,9 +19,21 @@
 	    	</div>
 		</div>
 		<div class="row">
-			<button ng-hide="editing" class="btn btn-default btn-xs" ng-click="toggleEditor()">Edit</button>
-			<button ng-show="editing" class="btn btn-default btn-xs" ng-click="save()">Save</button>
-			<button ng-show="editing" class="btn btn-default btn-xs" ng-click="cancel()">Cancel</button>
+			<div class="form-group">
+	    		<label for="nome" class="col-md-3 control-label">Email</label>
+	        	<div class="col-md-9">
+	          		<p ng-hide="editing" class="form-control-static">{{utente.email}}</p>
+	          		<input ng-show="editing" class="form-control" type="text" ng-model="utente.email" placeholder="Email" ng-required/>
+		        </div>
+	    	</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3 text-center">
+				<button ng-hide="editing" class="btn btn-success btn-xs" ng-click="toggleEditor()">Edit</button>
+				<button ng-show="editing" class="btn btn-success btn-xs" ng-click="save()">Save</button>
+				<button ng-show="editing" class="btn btn-success btn-xs" ng-click="cancel()">Cancel</button>
+				<button class="btn btn-success btn-xs" ng-click="userList()">Back</button>
+			</div>
 		</div>
 	</div>
 

@@ -1,6 +1,10 @@
 <div class="col-md-12" ng-controller="ElencoCtrl">
 
-  <div class="col-md-12">
+  <div ng-if="utenti.length === 0" class="col-md-12">
+    Nessun utente presente in anagrafica
+  </div>
+
+  <div ng-if="utenti.length !== 0" class="col-md-12">
     <div class="row" ng-repeat="utente in utenti">
       <div class="col-md-4">
         {{utente.nome}}
@@ -10,7 +14,7 @@
       </div>
       <div class="col-md-4">
         <a ui-sref="dettaglio({id:'{{utente._id}}'})" class="btn btn-success btn-xs">View</a>
-        <a ng-click="cancella($index)" class="btn btn-success btn-xs">Delete</a>
+        <a ng-click="cancella($index)" class="btn btn-danger btn-xs">Delete</a>
       </div>
     </div>
   </div>
