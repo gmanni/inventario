@@ -2,18 +2,38 @@ utenti
 	elenco
 		nome 
 		cognome
-		emails
-		
+		email
 	aggiungi
 	cancella
 	modifica
 
 pc
 	elenco
+		marca
+		modello
+		tipologia
+		service tag
+		idCopernico
+		mac address wifi
+		mac address wired
+		CPU
+		VGA
+		RAM
+		HDD
+		OS installato 
+		data installazione
+		data acquisto
+		host name
+		programmi installati/da installare
+		immagine(si no)
+		location immagine
+		note immagine
+		cartella PUBLIC
 	aggiungi
 	cancella
 	modifica
 	associa ad utente
+
 
 software
 	elenco
