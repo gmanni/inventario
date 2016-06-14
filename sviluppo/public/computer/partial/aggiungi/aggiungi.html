@@ -1,0 +1,56 @@
+<div class="col-md-12" ng-controller="AggiungiComputersCtrl">
+  <div class="form-horizontal">
+    <div class="row">
+      <div class="form-group" ng-submit="editing = false">
+          <label for="marca" class="col-md-3 control-label">Marca</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="marca" placeholder="Marca" ng-model="nuovoComputer.marca">
+          </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="form-group" ng-submit="editing = false">
+          <label for="modello" class="col-md-3 control-label">Modello</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="modello" placeholder="Modello" ng-model="nuovoComputer.modello">
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" ng-submit="editing = false">
+          <label for="tipologia" class="col-md-3 control-label">tipologia</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="tipologia" placeholder="Tipologia" ng-model="nuovoComputer.tipologia">
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" ng-submit="editing = false">
+          <label for="serviceTag" class="col-md-3 control-label">servicetag</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="serviceTag" placeholder="Service Tag" ng-model="nuovoComputer.serviceTag">
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" ng-submit="editing = false">
+          <label for="idCopernico" class="col-md-3 control-label">idCopernico</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="idCopernico" placeholder="Id Aziendale" 
+            	ng-model="nuovoComputer.idCopernico">
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-9 col-md-offset-3 text-center">
+        <button ng-click="salva()" class="btn btn-success btn-xs">Salva</button>
+        <button ui-sref="elencopc" class="btn btn-success btn-xs">Back</button>
+      </div>
+      
+    </div>
+</div>

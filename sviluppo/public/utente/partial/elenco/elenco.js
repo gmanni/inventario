@@ -1,4 +1,4 @@
-angular.module('utente').controller('ElencoCtrl',['$scope', '$http', function($scope, $http){
+angular.module('utente').controller('ElencoUtentiCtrl',['$scope', '$http', function($scope, $http){
 	var apiOptions = {
   		server : "http://localhost:3000"
 	};

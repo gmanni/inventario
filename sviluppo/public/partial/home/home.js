@@ -1,5 +1,6 @@
 angular.module('inventario').controller('HomeCtrl',['$scope', '$http', function($scope, $http){
-	var apiOptions = {
+	/*
+    var apiOptions = {
   		server : "http://localhost:3000"
 	};
 	
@@ -45,5 +46,5 @@ angular.module('inventario').controller('HomeCtrl',['$scope', '$http', function(
             console.log("ERROR " + data);
         });        
     }
-
+*/
 }]);

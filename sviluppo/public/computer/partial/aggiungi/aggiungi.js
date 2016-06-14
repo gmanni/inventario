@@ -1,14 +1,14 @@
-angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', '$state', function($scope, $http, $state){
-	$scope.nuovoUtente = {
-		nome: "",
-		cognome: "",
-    email: ""
-	}
-
-  $scope.message = "";
+angular.module('computer').controller('AggiungiComputersCtrl', ['$scope', '$http', '$state', function($scope, $http, $state){
+	$scope.nuovoComputer = {
+		marca: "",
+		modello: "",
+    	tipologia: "",
+    	serviceTag: "",
+    	idCopernico: ""
+  	}
 
 	$scope.salva = function(){
-		console.log($scope.nuovoUtente);
+		console.log($scope.nuovoComputer);
 		var apiOptions = {
   			server : "http://localhost:3000"
 		};
@@ -17,9 +17,9 @@ angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', '$state',
         	headers: {
     			'Content-Type': 'application/json'
            	},
-            url: apiOptions.server + "/api/users",
+            url: apiOptions.server + "/api/computers",
             method: 'POST',
-            data: JSON.stringify($scope.nuovoUtente),
+            data: JSON.stringify($scope.nuovoComputer),
             cache: false,
             transformResponse: function (data, headersGetter, status) {
                	//This was implemented since the REST service is returning a plain/text response
@@ -28,11 +28,9 @@ angular.module('utente').controller('AggiungiCtrl',['$scope', '$http', '$state',
             }
         }).success(function (data, status, headers, config) {
            	console.log("SUCCESS");
-            $scope.message = "inserimento effettuato con successo";
         		
         }).error(function (data, status, headers, config) {
            	console.log("ERROR" + data);
-            $scope.message = data;
         });
 	}
 

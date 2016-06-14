@@ -17,3 +17,4 @@ mongoose.connection.on('disconnected', function () {
 
 //require('./locations');
 require('./users');
+require('./computers');

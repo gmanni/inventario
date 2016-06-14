@@ -1,4 +1,31 @@
-<div class="col-md-12" ng-controller="ElencoCtrl">
-elenco dei computer
+<div class="col-md-12" ng-controller="ElencoComputersCtrl">
+	<div class="row">
+		<div ng-if="computers.length === 0" class="col-md-12">
+    		Nessun computer presente in anagrafica
+  		</div>
 
+		<div ng-if="computers.length !== 0" class="col-md-12">
+			<div class="row" ng-repeat="computer in computers">
+		    	<div class="col-md-2">
+		        	{{computer.marca}}
+		      	</div>
+		      	<div class="col-md-2">
+		        	{{computer.modello}}
+		      	</div>
+		      	<div class="col-md-2">
+		        	{{computer.tipologia}}
+		      	</div>
+		      	<div class="col-md-2">
+		        	{{computer.servicetag}}
+		      	</div>
+		      	<div class="col-md-2">
+		        	{{computer.idCopernico}}
+		      	</div>
+		      	<div class="col-md-2">
+		        	<a ui-sref="dettaglio({id:'{{computer._id}}'})" class="btn btn-success btn-xs">View</a>
+		        	<a ng-click="cancella($index)" class="btn btn-danger btn-xs">Delete</a>
+		      	</div>
+		    </div>
+		</div>
+	</div>
 </div>
