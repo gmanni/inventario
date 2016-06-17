@@ -3,6 +3,10 @@ angular.module('computer').controller('ElencoComputersCtrl', ['$scope', '$http',
   		server : "http://localhost:3000"
 	};
 
+    $scope.confermaCancella = false;   
+    $scope.computerDaCancellare = "";
+    $scope.message = "";
+
 	var request = $http({
         headers: {
     		'Content-Type': 'application/json'
@@ -23,9 +27,22 @@ angular.module('computer').controller('ElencoComputersCtrl', ['$scope', '$http',
     	console.log("ERROR");
 	});
 
-    $scope.cancella = function(computerIndex){
+    $scope.cancellaClick = function(computerIndex){
+        $scope.confermaCancella = true;
+        $scope.computerDaCancellare = computerIndex.toString();
+    }
+
+    $scope.annullaCancellaClick = function(){
+        $scope.confermaCancella = false;   
+        $scope.computerDaCancellare = "";
+    }
+
+    $scope.elimina = function(){
+        $scope.confermaCancella = false;   
+        computerIndex = parseInt($scope.computerDaCancellare, 10);
+        $scope.utenteDaCancellare = "";   
         console.log(computerIndex);
-        console.log($scope.computers[computerIndex]._id);
+        
         var request = $http({
             headers: {
                 'Content-Type': 'application/json'
@@ -41,9 +58,11 @@ angular.module('computer').controller('ElencoComputersCtrl', ['$scope', '$http',
         }).success(function (data, status, headers, config) {
             console.log("SUCCESS");
             $scope.computers.splice(computerIndex, 1);
+            $scope.message = "Computer eliminato con successo";
 
         }).error(function (data, status, headers, config) {
             console.log("ERROR " + data);
+            $scope.message = data;
         });
     }
 

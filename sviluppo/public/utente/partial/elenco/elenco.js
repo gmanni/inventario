@@ -2,8 +2,12 @@ angular.module('utente').controller('ElencoUtentiCtrl',['$scope', '$http', funct
 	var apiOptions = {
   		server : "http://localhost:3000"
 	};
-
-	var request = $http({
+    
+    $scope.confermaCancella = false;   
+    $scope.utenteDaCancellare = "";
+    $scope.message = "";
+	
+    var request = $http({
         headers: {
     		'Content-Type': 'application/json'
            	},
@@ -23,7 +27,20 @@ angular.module('utente').controller('ElencoUtentiCtrl',['$scope', '$http', funct
             console.log("ERROR");
         });
 
-    $scope.cancella = function(userIndex){
+    $scope.cancellaClick = function(userIndex){
+        $scope.confermaCancella = true;
+        $scope.utenteDaCancellare = userIndex.toString();
+    }
+
+    $scope.annullaCancellaClick = function(){
+        $scope.confermaCancella = false;   
+        $scope.utenteDaCancellare = "";
+    }
+
+    $scope.elimina = function(){
+        $scope.confermaCancella = false;   
+        userIndex = parseInt($scope.utenteDaCancellare,10);
+        $scope.utenteDaCancellare = "";   
         console.log(userIndex);
         var request = $http({
             headers: {
@@ -40,9 +57,11 @@ angular.module('utente').controller('ElencoUtentiCtrl',['$scope', '$http', funct
         }).success(function (data, status, headers, config) {
             console.log("SUCCESS");
             $scope.utenti.splice(userIndex, 1);
+            $scope.message = "Utente eliminato con successo";
 
         }).error(function (data, status, headers, config) {
             console.log("ERROR " + data);
+            $scope.message = data;
         });
     }
 

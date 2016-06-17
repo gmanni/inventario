@@ -1,56 +1,70 @@
 <div class="col-md-12" ng-controller="AggiungiComputersCtrl">
   <div class="form-horizontal">
+    
+  <!-- MARCA -->
     <div class="row">
       <div class="form-group" ng-submit="editing = false">
           <label for="marca" class="col-md-3 control-label">Marca</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="marca" placeholder="Marca" ng-model="nuovoComputer.marca">
+            <input ng-disabled="message !== ''" type="text" class="form-control" id="marca" placeholder="Marca" ng-model="nuovoComputer.marca">
           </div>
       </div>
     </div>
   
+    <!-- MODELLO -->
     <div class="row">
       <div class="form-group" ng-submit="editing = false">
           <label for="modello" class="col-md-3 control-label">Modello</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="modello" placeholder="Modello" ng-model="nuovoComputer.modello">
+            <input ng-disabled="message !== ''" type="text" class="form-control" id="modello" placeholder="Modello" ng-model="nuovoComputer.modello">
           </div>
       </div>
     </div>
 
+    <!-- TIPOLOGIA -->
     <div class="row">
       <div class="form-group" ng-submit="editing = false">
           <label for="tipologia" class="col-md-3 control-label">tipologia</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="tipologia" placeholder="Tipologia" ng-model="nuovoComputer.tipologia">
+            <input ng-disabled="message !== ''" type="text" class="form-control" id="tipologia" placeholder="Tipologia" ng-model="nuovoComputer.tipologia">
           </div>
       </div>
     </div>
 
+    <!-- SERVICE TAG -->
     <div class="row">
       <div class="form-group" ng-submit="editing = false">
           <label for="serviceTag" class="col-md-3 control-label">servicetag</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="serviceTag" placeholder="Service Tag" ng-model="nuovoComputer.serviceTag">
+            <input ng-disabled="message !== ''" type="text" class="form-control" id="serviceTag" placeholder="Service Tag" ng-model="nuovoComputer.serviceTag">
           </div>
       </div>
     </div>
 
+    <!-- ID COPERNICO -->
     <div class="row">
       <div class="form-group" ng-submit="editing = false">
           <label for="idCopernico" class="col-md-3 control-label">idCopernico</label>
           <div class="col-md-9">
-            <input type="text" class="form-control" id="idCopernico" placeholder="Id Aziendale" 
+            <input ng-disabled="message !== ''" type="text" class="form-control" id="idCopernico" placeholder="Id Aziendale" 
             	ng-model="nuovoComputer.idCopernico">
           </div>
       </div>
     </div>
 
+    <!-- PULSANTI -->
     <div class="row">
       <div class="col-md-9 col-md-offset-3 text-center">
-        <button ng-click="salva()" class="btn btn-success btn-xs">Salva</button>
+        <button ng-if="message === ''" ng-click="salva()" class="btn btn-success btn-xs">Salva</button>
         <button ui-sref="elencopc" class="btn btn-success btn-xs">Back</button>
       </div>
-      
     </div>
+   
+   <!-- MESSAGGIO -->
+    <div ng-if="message !== ''" class="row">
+      <div class="col-md-9 col-md-offset-3 text-center alert alert-success" role="alert" style="margin-top: 2rem;">
+        <p>{{message}}</p>
+      </div>
+    </div>
+
 </div>

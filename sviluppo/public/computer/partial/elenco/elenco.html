@@ -1,11 +1,14 @@
 <div class="col-md-12" ng-controller="ElencoComputersCtrl">
 	<div class="row">
+
+		<!-- NESSUN PC IN ANAGRAFICA -->
 		<div ng-if="computers.length === 0" class="col-md-12">
     		Nessun computer presente in anagrafica
   		</div>
 
+  		<!-- ELENCO PC -->
 		<div ng-if="computers.length !== 0" class="col-md-12">
-			<div class="row" ng-repeat="computer in computers">
+			<div class="row" ng-repeat="computer in computers" style="padding-bottom: 1rem;">
 		    	<div class="col-md-2">
 		        	{{computer.marca}}
 		      	</div>
@@ -23,9 +26,27 @@
 		      	</div>
 		      	<div class="col-md-2">
 		        	<a ui-sref="dettaglio({id:'{{computer._id}}'})" class="btn btn-success btn-xs">View</a>
-		        	<a ng-click="cancella($index)" class="btn btn-danger btn-xs">Delete</a>
+		        	<a ng-click="cancellaClick($index)" class="btn btn-danger btn-xs">Delete</a>
 		      	</div>
 		    </div>
 		</div>
+
+		<!-- CONFERMA CANCELLAZIONE -->
+    	<div ng-hide="confermaCancella === false" class="col-md-12 text-center alert alert-warning" role="alert" style="margin-top: 2rem;">
+      		Sei sicuro di voler cancellare il pc selezionato?
+      		<button ng-click="elimina()" class="btn btn-warning btn-xs">Yes</button>
+      		<button ng-click="annullaCancellaClick()" class="btn btn-warning btn-xs">No</button>
+    	</div>
+
+	    <!-- MESSAGGIO -->
+	    <div ng-if="message !== ''" class="row">
+	      <div class="col-md-12 text-center alert alert-success alert-dismissible" role="alert" style="margin-top: 2rem;">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <p>{{message}}</p>
+	      </div>
+    	</div>
+
 	</div>
 </div>

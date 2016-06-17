@@ -1,11 +1,17 @@
+
 <div class="col-md-12" ng-controller="ElencoUtentiCtrl">
   <div class="row">
+    
+    <!-- NESSUN UTENTE IN ANFAGRAFICA -->
     <div ng-if="utenti.length === 0" class="col-md-12">
       Nessun utente presente in anagrafica
     </div>
-
+    
+    <!-- ng-class="{'fa-plus':!moduloLMS.opened,'fa-minus':moduloLMS.opened}" -->
+    
+    <!-- ELENCO UTENTI -->
     <div ng-if="utenti.length !== 0" class="col-md-12">
-      <div class="row" ng-repeat="utente in utenti">
+      <div ng-class="{'well': $index===utenteDaCancellare, 'annulla': confermaCancella===false}" class="row" ng-repeat="utente in utenti" style="padding-bottom: 1rem;">
         <div class="col-md-4">
           {{utente.nome}}
         </div>
@@ -14,9 +20,27 @@
         </div>
         <div class="col-md-4">
           <a ui-sref="dettaglio({id:'{{utente._id}}'})" class="btn btn-success btn-xs">View</a>
-          <a ng-click="cancella($index)" class="btn btn-danger btn-xs">Delete</a>
+          <a ng-click="cancellaClick($index)" class="btn btn-danger btn-xs">Delete</a>
         </div>
       </div>
     </div>
+    
+    <!-- CONFERMA CANCELLAZIONE -->
+    <div ng-hide="confermaCancella === false" class="col-md-12 text-center alert alert-warning" role="alert" style="margin-top: 2rem;">
+      Sei sicuro di voler cancellare l'utente selezionato?
+      <button ng-click="elimina()" class="btn btn-warning btn-xs">Yes</button>
+      <button ng-click="annullaCancellaClick()" class="btn btn-warning btn-xs">No</button>
+    </div>
+
+    <!-- MESSAGGIO -->
+    <div ng-if="message !== ''" class="row">
+      <div class="col-md-12 text-center alert alert-success alert-dismissible" role="alert" style="margin-top: 2rem;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <p>{{message}}</p>
+      </div>
+    </div>
+
   </div>
 </div>

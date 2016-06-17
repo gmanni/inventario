@@ -1,11 +1,13 @@
 angular.module('computer').controller('AggiungiComputersCtrl', ['$scope', '$http', '$state', function($scope, $http, $state){
-	$scope.nuovoComputer = {
+  $scope.nuovoComputer = {
 		marca: "",
 		modello: "",
-    	tipologia: "",
-    	serviceTag: "",
-    	idCopernico: ""
-  	}
+   	tipologia: "",
+   	serviceTag: "",
+   	idCopernico: ""
+  }
+
+  $scope.message = "";
 
 	$scope.salva = function(){
 		console.log($scope.nuovoComputer);
@@ -28,9 +30,10 @@ angular.module('computer').controller('AggiungiComputersCtrl', ['$scope', '$http
             }
         }).success(function (data, status, headers, config) {
            	console.log("SUCCESS");
-        		
+        		$scope.message = "inserimento effettuato con successo";
         }).error(function (data, status, headers, config) {
            	console.log("ERROR" + data);
+            $scope.message = data;
         });
 	}
 
